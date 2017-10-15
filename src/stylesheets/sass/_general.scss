@@ -13,10 +13,6 @@ html {
 body {
   align-items: center;
   background-color: #14689e;
-  background-image: url('../../icons/animated/day.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 50%;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -24,7 +20,45 @@ body {
   width: 100%;
 }
 
+h1 {
+  text-align: center;
+}
+
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  max-height: 90%;
+  min-height: 50%;
+  justify-content: center;
+  width: 100%;
+}
+
+p {
+  margin: 0.2em;
+}
+
 svg {
   height: 25vh;
   width: 25vw;
+}
+
+.icon {
+  background-image: url('../../icons/animated/day.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 5em;
+  width: 10em;
+}
+
+.weather {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 2em;
+  justify-content: center;
+  width: 10em;
 }
