@@ -11,54 +11,21 @@ html {
 }
 
 body {
-  align-items: center;
-  background-color: #14689e;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  width: 100%;
-}
-
-h1 {
-  text-align: center;
-}
-
-main {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  font-size: 1rem;
-  max-height: 90%;
-  min-height: 50%;
-  justify-content: center;
-  width: 100%;
-}
-
-p {
-  margin: 0.2em;
-}
-
-svg {
-  height: 25vh;
-  width: 25vw;
-}
-
-.icon {
-  background-image: url('../../icons/animated/day.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 5em;
-  width: 10em;
-}
-
-.weather {
-  align-items: center;
+  background-color: #1E5499;
   color: white;
   display: flex;
   flex-direction: column;
-  font-size: 2em;
-  justify-content: center;
-  width: 10em;
+  font-family: 'Source Sans Pro', sans-serif;
+  height: 100%;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.svg {
+  background-image: url("../../images/mountain.svg");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 20vh;
+  width: 100%;
 }
