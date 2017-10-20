@@ -14,6 +14,21 @@ navigator.geolocation.getCurrentPosition(data => {
     })
 });
 
+
+function convertUnits() {
+  // convert to imperial (fahrenheit, mph)
+  if (isMetric) {
+    weather.temp = (weather.temp * 5/9) + 32;
+    weather.wind *= 0.621371;
+  }
+  else { // convert to metric (celcius, kph)
+    weather.temp = (weather.temp - 32) * 9/5;;
+    weather.wind *= 1.609344;
+  }
+  isMetric = !isMetric;
+}
+
+
 function displayWeather() {
   const description = document.querySelector('.description');
   const forecast    = document.querySelector('.forecast');
