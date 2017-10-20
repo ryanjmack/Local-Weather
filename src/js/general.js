@@ -14,6 +14,20 @@ navigator.geolocation.getCurrentPosition(data => {
     })
 });
 
+function displayWeather() {
+  const description = document.querySelector('.description');
+  const forecast    = document.querySelector('.forecast');
+  const location    = document.querySelector('.location');
+  const temp        = document.querySelector('.temp');
+  const wind        = document.querySelector('.wind');
+
+  description.textContent = `${weather.description}`;
+  forecast.textContent    = `${weather.mainWeather}`;
+  location.textContent    = `${weather.location}`;
+  temp.innerHTML          = `${Math.round(weather.temp)}<span class="unit">&deg;${isMetric ? 'C': 'F'}</span>`;
+  wind.innerHTML          = `${Math.round(weather.wind * 10) / 10} <span class="unit">${isMetric ? 'kph': 'mph'}</span>`;
+}
+
 function formatWeather(data) {
   weather = {
     location: data.name,
