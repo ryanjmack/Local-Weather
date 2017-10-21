@@ -81,13 +81,11 @@ function capitalizeFirstChar(str) {
   return str.slice(0, 1).toUpperCase() + str.slice(1);
 }
 
-
 /******************************************
               Event Listeners
 ******************************************/
 // a click on either element toggles between metric/imperial units
 temp.addEventListener('click', () => {
-  //
   weather.isMetric = !weather.isMetric;
   displayWeather();
 });
