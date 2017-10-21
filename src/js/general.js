@@ -13,7 +13,10 @@ const location = document.querySelector('.location');
 const temp = document.querySelector('.temp');
 const wind = document.querySelector('.wind');
 
-// use geolocation to call the weather API
+
+/******************************************
+            Geolocation & API Call
+******************************************/
 navigator.geolocation.getCurrentPosition(data => {
   const endpoint = 'https://api.openweathermap.org/data/2.5/weather?'
   const latitude = data.coords.latitude;
@@ -34,6 +37,14 @@ navigator.geolocation.getCurrentPosition(data => {
               Functions
 ******************************************/
 
+//we need to display the proper svg icon depedning on weather conditions
+function displayIcon() {
+  const icon = document.querySelector('.icon');
+
+  //TODO - finish this function
+}
+
+
 // called when data is received and processed, and when user toggles
 // between metric and imperial units
 function displayWeather() {
@@ -50,11 +61,13 @@ function displayWeather() {
     temp.innerHTML = `${weather.temp}<span class="unit">&deg;F</span>`;
     wind.innerHTML = `${weather.windSpeed} <span class="unit">mph</span>`;
   }
+  // dynamically insert the proper icon
+  displayIcon();
 }
+
 
 // called once only when data is returned from the API
 function formatWeather(data) {
-
   //top level variable - weather
   weather =
   {
@@ -76,10 +89,12 @@ function formatWeather(data) {
   displayWeather();
 }
 
+
 // the weather description returned from the API is lowercase
 function capitalizeFirstChar(str) {
   return str.slice(0, 1).toUpperCase() + str.slice(1);
 }
+
 
 /******************************************
               Event Listeners
