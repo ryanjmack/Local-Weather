@@ -18,7 +18,7 @@ const wind = document.querySelector('.wind');
             Geolocation & API Call
 ******************************************/
 navigator.geolocation.getCurrentPosition(data => {
-  const endpoint = 'https://api.openweathermap.org/data/2.5/weather?'
+  const endpoint = 'https://api.openweathermap.org/data/2.5/weather/?'
   const latitude = data.coords.latitude;
   const longitude = data.coords.longitude;
   const key = '4666c8422b21ccb1fa7e7b5e0f11c37f';
@@ -37,19 +37,53 @@ navigator.geolocation.getCurrentPosition(data => {
               Functions
 ******************************************/
 
-//we need to display the proper svg icon depedning on weather conditions
+//display the proper svg icon depedning on weather conditions
 function displayIcon() {
-  const icon = document.querySelector('.icon');
+  // path to icon -- remove "../" for production build
+  // concatenate proper icon to this then set the style
+  let backgroundURL = '../../icons/static/'
 
-  //TODO - finish this function
+  // where icon will be inserted
+  const icon     = document.querySelector('.icon');
+  const forecast = weather.forecast;
+  // some icons are day/night
+  const isNight = (weather.currentTime < weather.sunrise
+                || weather.currentTime > weather.sunset);
+
+  // check forecast for keywords and then change the icon accordingly
+  switch(true) {
+    case /cloud|overcast|fog/i.test(forecast):
+      backgroundURL += (isNight) ? 'cloudy-night' : 'cloudy-day';
+      break;
+
+    case /mist|drizzle/i.test(forecast):
+      backgroundURL += 'light-rain';
+      break;
+
+    case /rain|shower/i.test(forecast):
+      backgroundURL += 'heavy-rain';
+      break;
+
+    case /snow|ice|blizzard|flurry|flurries|freez/i.test(forecast):
+      backgroundURL += 'snowy';
+      break;
+
+    case /thunder|lightning/i.test(forecast):
+      backgroundURL += 'thunder';
+      break;
+
+    default:
+      backgroundURL += (isNight) ? 'night' : 'day';
+  }
+  icon.style.backgroundImage = `url(${backgroundURL}.svg)`;
 }
 
 
 // called when data is received and processed, and when user toggles
 // between metric and imperial units
 function displayWeather() {
-  description.textContent = `${weather.description}`;
-  forecast.textContent = `${weather.mainWeather}`;
+  //description.textContent = `${weather.description}`;
+  forecast.textContent = `${weather.forecast}`;
   location.textContent = `${weather.location}`;
 
   if (weather.isMetric) // then display metric units
@@ -73,8 +107,8 @@ function formatWeather(data) {
   {
     // location/forecast strings
     location: data.name,
-    mainWeather: data.weather.map(el => el.main),
-    description: capitalizeFirstChar(data.weather.map(el => el.description).join(' ,')), // first char isn't capitalized in data
+    forecast: data.weather.map(el => el.main)[0],
+    //description: capitalizeFirstChar(data.weather.map(el => el.description).join(' ,')), // first char isn't capitalized in data
 
     //imperial
     temp: Math.round(data.main.temp), // rounded to the nearest degree
@@ -82,7 +116,13 @@ function formatWeather(data) {
     // metric
     isMetric: false, // flag used in displayWeather
     metricTemp: Math.round((data.main.temp - 32) * 5 / 9),
-    metricWindSpeed: Math.round(data.wind.speed * 1.609344 * 10) / 10
+    metricWindSpeed: Math.round(data.wind.speed * 1.609344 * 10) / 10,
+
+    // time
+    // for some reason sunrise and and sunset data from the API is truncated by 3 places
+    currentTime: Math.round((new Date).getTime() / 1000),
+    sunrise: data.sys.sunrise,
+    sunset: data.sys.sunset
   }
 
   // now display the data!
