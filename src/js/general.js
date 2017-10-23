@@ -85,6 +85,7 @@ function displayWeather() {
   //description.textContent = `${weather.description}`;
   forecast.textContent = `${weather.forecast}`;
   location.textContent = `${weather.location}`;
+  document.title       = `Current Weather Conditions in ${weather.location}`;
 
   if (weather.isMetric) // then display metric units
   {
