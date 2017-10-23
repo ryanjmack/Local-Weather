@@ -11,16 +11,18 @@ html {
 }
 
 body {
-  align-items: flex-start;
+  align-items: center;
   background-image: url('../../images/cold_640.jpg');
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
   display: flex;
-  font-family: serif;
-  font-style: italic;
-  font-weight: 300;
+  font: {
+    family: 'Source Sans Pro', sans-serif;
+    style: italic;
+    weight: 400;
+  }
   height: 100%;
   justify-content: center;
   margin: 0;
@@ -36,19 +38,29 @@ body {
 }
 
 h1 {
-  margin-bottom: 1em;
-  margin-top: 0;
+  font-weight: 300;
+  font-size: 1.8em;
+  margin: 0;
 }
 
 main {
   align-items: center;
-  background: linear-gradient(rgba(75, 75, 75, 0.1), rgba(0, 0, 0, 0.2));
+  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
   display: flex;
   flex-direction: column;
+  font-size: 1.2rem;
   justify-content: center;
-  margin-top: 5em;
+  margin-bottom: 2em;
   max-width: 30em;
+  padding: 0.5em;
   width: 90%;
+}
+
+p {
+  &:first-of-type {
+    margin-top: 2em;
+  }
+  margin: 0.7em 0;
 }
 
 .icon {
