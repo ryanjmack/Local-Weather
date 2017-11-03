@@ -1,3 +1,6 @@
+/********************************************************************
+  HTML SELECTORS
+*******************************************************************/
 html {
   box-sizing: border-box;
   font-size: 1rem;
@@ -12,9 +15,11 @@ html {
 
 body {
   align-items: center;
-  // https://pixabay.com/en/background-blue-grunge-paper-1773664/
-  background-image: url('../../images/cool-warm_640.jpg');
-  background-position: center;
+  background-image: url('../../images/background_640-portrait.jpg');
+  @media (orientation: landscape) { // small device, landscape
+    background-image: url('../../images/background_640.jpg');
+  }
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   color: #eef7f4;
@@ -31,14 +36,30 @@ body {
   position: relative;
   text-shadow: 1px 1px 0 #111;
   width: 100%;
-  @media (min-width: 1000px) {
-    background-image: url('../../images/cool-warm_1280.jpg');
-  }
-  @media (min-width: 1920px) {
-    background-image: url('../../images/cool-warm_1920.jpg');
-  }
-}
 
+/********************************************************************
+  MEDIA QUERIES for background image
+*******************************************************************/
+  @media (min-width: 1000px) {
+    background-image: url('../../images/background_1280-portrait.jpg');
+    // nested MQ: landscape
+    @media (orientation: landscape) {
+      background-image: url('../../images/background_1280.jpg');
+    }
+  }
+
+  @media (min-width: 1920px) {
+    background-image: url('../../images/background_1920.jpg');
+  }
+
+  @media (min-width: 2500px) {
+    background-image: url('../../images/background_1920-wide.jpg');
+  }
+} // end body selector
+
+/********************************************************************
+  HTML SELECTORS (continued)
+*******************************************************************/
 h1 {
   font-weight: 300;
   font-size: 1.8rem;
@@ -47,7 +68,7 @@ h1 {
 
 main {
   align-items: center;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,6 +85,10 @@ main {
 p {
   margin: 0.7em 0;
 }
+
+/********************************************************************
+  CLASSES
+*******************************************************************/
 
 .icon {
   background-position: center;
