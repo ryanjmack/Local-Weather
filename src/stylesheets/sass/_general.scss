@@ -12,54 +12,56 @@ html {
 
 body {
   align-items: center;
-  background-image: url('../../images/cold_640.jpg');
-  background-position: bottom center;
+  background-image: url('../../images/cool-warm_640.jpg');
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
+  color: #eef7f4;
   display: flex;
   font: {
     family: 'Source Sans Pro', sans-serif;
     style: italic;
     weight: 400;
   }
+  flex-direction: column;
   height: 100%;
   justify-content: center;
   margin: 0;
   position: relative;
+  text-shadow: 1px 1px 0 #111;
   width: 100%;
-
-  @media (min-width: 550px) {
-    background-image: url('../../images/cold_1280.jpg');
-  }
   @media (min-width: 1000px) {
-    background-image: url('../../images/cold_1920.jpg');
+    background-image: url('../../images/cool-warm_1280.jpg');
+  }
+  @media (min-width: 1920px) {
+    background-image: url('../../images/cool-warm_1920.jpg');
   }
 }
 
 h1 {
   font-weight: 300;
-  font-size: 1.8em;
+  font-size: 1.8rem;
   margin: 0;
 }
 
 main {
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   flex-direction: column;
-  font-size: 1.2rem;
   justify-content: center;
   margin-bottom: 2em;
   max-width: 30em;
   padding: 0.5em;
-  width: 90%;
+  width: 100%;
+
+  @media (min-width: 28em) {
+    border-radius: 5%;
+    width: 20em;
+  }
 }
 
 p {
-  &:first-of-type {
-    margin-top: 2em;
-  }
   margin: 0.7em 0;
 }
 
@@ -67,10 +69,31 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  flex-grow: 1;
   height: 7em;
   width: 100%;
+
+  @media (min-width: 28em) {
+    height: 9em;
+  }
+}
+
+.temp {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.3rem;
+
+  & .unit {
+    font-size: 1.5rem;
+    margin-left: 0.2em;
+  }
 }
 
 .temp:hover, .wind:hover {
-  color: goldenrod;
+  color: orange;
+  transition: 0.2s;
+}
+
+.unit {
+  color: #00d4d4;
 }
