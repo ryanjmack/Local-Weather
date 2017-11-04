@@ -63,28 +63,30 @@ body {
 *******************************************************************/
 h1 {
   font-weight: 300;
-  font-size: 1.8rem;
+  font-size: 1.8em;
   margin: 0;
 }
 
 main {
   align-items: center;
   background: rgba(0, 0, 0, 0.4);
+  border-radius: 5%;
   display: flex;
   flex-direction: column;
+  font-size: 1.1rem;
   justify-content: center;
-  max-width: 30em;
+  max-width: 90%;
   padding: 0 0.5em 0.5em 0.5em;
   width: 100%;
 
   @media (min-width: 28em) {
-    border-radius: 5%;
+    font-size: 1.2rem;
     width: 20em;
   }
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   margin: 0.4em 0;
 }
 
@@ -93,7 +95,7 @@ p {
 *******************************************************************/
 
 .forecast {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5em 0;
 }
 
 .icon {
@@ -110,13 +112,13 @@ p {
 }
 
 .temp {
-  font-size: 3.2rem;
-  margin-bottom: 1.6rem;
-  margin-top: 0.6rem;
+  font-size: 3.2em;
+  margin-bottom: 0.5em;
+  margin-top: 0.25em;
 
   & .unit {
-    font-size: 2rem;
-    margin-left: 0.2em;
+    font-size: 0.625em;
+    margin-left: 0.15em;
   }
 }
 
