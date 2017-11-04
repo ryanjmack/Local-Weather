@@ -1,4 +1,11 @@
 /********************************************************************
+  VARIABLES
+*******************************************************************/
+$text: #eef7f4;
+$hover: red;
+$unit: lighten(#123555, 30%);
+
+/********************************************************************
   HTML SELECTORS
 *******************************************************************/
 html {
@@ -22,7 +29,7 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: #eef7f4;
+  color: $text;
   display: flex;
   font: {
     family: 'Source Sans Pro', sans-serif;
@@ -34,7 +41,7 @@ body {
   justify-content: center;
   margin: 0;
   position: relative;
-  text-shadow: 1px 1px 0 #111;
+  text-shadow: 1px 1px 1px #111;
   width: 100%;
 
 /********************************************************************
@@ -51,10 +58,6 @@ body {
   @media (min-width: 1920px) {
     background-image: url('../../images/background_1920.jpg');
   }
-
-  @media (min-width: 2500px) {
-    background-image: url('../../images/background_1920-wide.jpg');
-  }
 } // end body selector
 
 /********************************************************************
@@ -66,14 +69,9 @@ h1 {
   margin: 0;
 }
 
-h1 {
-  margin-bottom: 1em;
-  margin-top: 0;
-}
-
 main {
   align-items: center;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,12 +86,17 @@ main {
 }
 
 p {
-  margin: 0.7em 0;
+  font-size: 1.2rem;
+  margin: 0.4em 0;
 }
 
 /********************************************************************
   CLASSES
 *******************************************************************/
+
+.forecast {
+  margin: 0 0 0.5rem 0;
+}
 
 .icon {
   background-position: center;
@@ -109,33 +112,21 @@ p {
 }
 
 .temp {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  margin-top: 1.3rem;
+  font-size: 3.2rem;
+  margin-bottom: 1.6rem;
+  margin-top: 0.6rem;
 
   & .unit {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-left: 0.2em;
   }
 }
 
 .temp:hover, .wind:hover {
-  color: orange;
+  color: $hover;
   transition: 0.2s;
 }
 
 .unit {
-  color: #00d4d4;
-}
-
-.icon {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 7em;
-  width: 100%;
-}
-
-.temp:hover, .wind:hover {
-  color: goldenrod;
+  color: $unit;
 }
