@@ -1,4 +1,4 @@
-# [frontend-project-template] License
+# FCC Local Weather App License
 
 ## MIT License
 
