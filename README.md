@@ -4,7 +4,7 @@ This is a web based weather app that gets the user's geolocation and makes a cal
 
 ## Getting Started
 
-Check out the [live demo](https://ryanjmack.github.io/fcc-local-weather/)!
+Check out the [live demo](https://ryanjmack.github.io/Local-Weather/)!
 
 ## Built With
 
